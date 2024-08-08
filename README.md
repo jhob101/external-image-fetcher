@@ -18,4 +18,4 @@ THere's probably a bit of a performance hit as every image is first checked to s
 2. Activate Plugin
 3. Go to `Settings` > `External Image Fixer` and enter the Live site URL (with no trailing slash) and hit `Save Changes`
 
-And that's it.  Images not present locally will now be served from the extenal site.
+And that's it.  Images not present locally will now be served from the external site.
