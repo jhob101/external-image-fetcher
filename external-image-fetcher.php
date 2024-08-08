@@ -8,6 +8,8 @@ Version: 1.0.1
 Requires PHP: 8.2
 */
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 // Exit if accessed directly
 defined('ABSPATH') || exit;
 

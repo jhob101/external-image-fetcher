@@ -1,4 +1,7 @@
 <?php
+
+use League\CommonMark\CommonMarkConverter;
+
 // Add a menu item to the admin menu for the plugin settings
 function external_image_fetcher_menu(): void {
     add_options_page('External Image Fetcher Settings', 'External Image Fetcher', 'manage_options', 'external-image-fetcher-settings', 'external_image_fetcher_settings_page');
@@ -11,13 +14,29 @@ function external_image_fetcher_settings_page(): void {
     ?>
     <div class="wrap">
         <h2>External Image Fetcher Settings</h2>
-        <form method="post" action="<?php echo admin_url('options.php'); ?>" enctype="multipart/form-data" id="external-image-fetcher-settings-form" class="external-image-fetcher-settings-form" data-settings-url="options.php">
+        <form method="post" action="<?php echo admin_url('options.php'); ?>" enctype="multipart/form-data" id="external-image-fetcher-settings-form"
+              class="external-image-fetcher-settings-form" data-settings-url="options.php">
             <?php
             settings_fields('external_image_fetcher_settings');
             do_settings_sections('external_image_fetcher_settings');
             submit_button();
             ?>
         </form>
+
+        <hr/>
+        <h2>Instructions</h2>
+        <?php
+        $readme_file = file_get_contents(plugin_dir_path(__FILE__) . '/../README.md');
+        $converter   = new CommonMarkConverter();
+        try {
+            $readme_html = $converter->convert($readme_file);
+        } catch (Exception $e) {
+            $readme_html = 'Error: ' . $e->getMessage();
+        }
+        echo '<div class="readme">' . $readme_html . '</div>';
+
+        ?>
+
     </div>
     <?php
 }
