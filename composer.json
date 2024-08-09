@@ -1,12 +1,12 @@
 {
-    "name": "damselfly-creative/external-image-fixer",
-    "authors": [
-        {
-            "name": "John Hobson",
-            "email": "3026384+jhob101@users.noreply.github.com"
-        }
-    ],
-    "require": {
-        "league/commonmark": "^2.5"
+  "name": "damselfly-creative/external-image-fixer",
+  "authors": [
+    {
+      "name": "John Hobson",
+      "email": "3026384+jhob101@users.noreply.github.com"
     }
+  ],
+  "require": {
+    "league/commonmark": "^2.5"
+  }
 }

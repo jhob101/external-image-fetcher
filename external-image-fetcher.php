@@ -19,7 +19,19 @@ require_once __DIR__ . '/public/functions.php';
 function modify_image_urls_init(): void {
     $live_site_url = get_option('live_site_url');
     if ($live_site_url && $live_site_url !== site_url()) {
-        add_filter('post_thumbnail_html', 'dc_modify_image_urls', 10, 5);
+
+        // WP image HTML
+        add_filter('wp_get_attachment_image', 'dc_modify_image_html', 99, 5);
+
+        // WP image array
+        add_filter('wp_get_attachment_image_src', 'dc_modify_image_src', 99, 4);
+
+        // WP
+        add_filter('the_content', 'dc_modify_images_in_content', 99, 1);
+
+        // ACF
+        add_filter('acf_the_content', 'dc_modify_images_in_content', 99, 1);
+
     }
 }
 
