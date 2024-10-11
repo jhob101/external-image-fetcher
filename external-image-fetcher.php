@@ -5,7 +5,7 @@ Description: Fetch images from an external live site if not found locally.
 Author: John Hobson
 Author URI: https://damselflycreative.com
 Version: 1.0.1
-Requires PHP: 8.2
+Requires PHP: 8.1
 */
 
 require_once __DIR__ . '/vendor/autoload.php';
